@@ -1,8 +1,7 @@
 # Functional Programming Approach to Strategy Design Pattern instead of Class based Abstraction
 
 import random, string
-from typing import List
-from abc import ABC, abstractmethod
+from typing import List, Callable
 
 class SupportTicket:
     def __init__(self, customer, issue) -> None:
@@ -26,7 +25,7 @@ def RandomCreateOrdering(list: List[SupportTicket]) -> List[SupportTicket]:
 
 
 class CustomerSupport:
-    def __init__(self, processingStrategyFunction) -> None:
+    def __init__(self, processingStrategyFunction: Callable[[List[SupportTicket]], List[SupportTicket]]) -> None:
         self.tickets = []
         self.processingStrategyFunction = processingStrategyFunction
     
@@ -55,7 +54,7 @@ def generateId(length=8):
 
 
 if __name__ == '__main__':
-    strategy = FILOCreateOrdering
+    strategy = FIFOCreateOrdering
     app = CustomerSupport(strategy)
 
     app.createTickets("John Smith", "My computer makes strange sounds!")
