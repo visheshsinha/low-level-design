@@ -63,6 +63,7 @@ update() {
 }
 ```
 
+![N|Solid](https://i.stack.imgur.com/TeMye.png)
 
 #### Walmart Low Level Design Round 2022 Interview Question:
 
