@@ -15,10 +15,18 @@ class PizzaHut:
         print(f'Adding {self.pizza.name} topping on pizza')
         print('Topping added successfully !')
 
+    def getFinalCost(self):
+        if isinstance(self.pizza, toppingPizza.Topping):
+            finalCost = order.pizza.cost()
+        else:
+            finalCost = order.pizza().cost()
+        
+        print(f'Your final price is {finalCost}')
+
     
 if __name__ == "__main__":
     order = PizzaHut()
     order.basing(margheritaPizza.MargheritaPizza)
     # order.toppings(mushroom.Mushroom)
     order.toppings(extraCheese.ExtraCheese)
-    print(f'Your final price is {order.pizza.cost()}')
+    order.getFinalCost()
